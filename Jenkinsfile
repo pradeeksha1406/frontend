@@ -5,7 +5,10 @@ pipeline{
 
     stage('Code Quality'){
       when {
-      expression { env.TAG_NAME != env.BRANCH_NAME }
+        allof {
+          branch main
+          expression { env.TAG_NAME != env.BRANCH_NAME }
+        }
       }
 
       steps {
