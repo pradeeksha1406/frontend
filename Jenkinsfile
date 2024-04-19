@@ -14,7 +14,6 @@ pipeline{
 
        sh 'env'
         echo 'CI'
-      }
     }
   }
 }
