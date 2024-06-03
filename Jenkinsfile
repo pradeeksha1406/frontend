@@ -34,11 +34,11 @@ pipeline{
         expression { env.TAG_NAME ==~ ".*"}
      }
       steps {
-       sh 'zip -r frontend-${TAG_NAME}.zip static asset-manifest.json index.html robots.txt'
-       sh 'curl -sSf -u "admin:Admin@123" -X PUT -T frontend-${TAG_NAME}.zip "http://artifactory.techadda.co:8082/artifactory/frontend/frontend-${TAG_NAME}.zip"'
-//        sh 'docker build -t 851725420695.dkr.ecr.us-east-1.amazonaws.com/frontend:${TAG_NAME} .'
-//        sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 851725420695.dkr.ecr.us-east-1.amazonaws.com'
-//        sh 'docker push 851725420695.dkr.ecr.us-east-1.amazonaws.com/frontend:${TAG_NAME}'
+//        sh 'zip -r frontend-${TAG_NAME}.zip static asset-manifest.json index.html robots.txt'
+//        sh 'curl -sSf -u "admin:Admin@123" -X PUT -T frontend-${TAG_NAME}.zip "http://artifactory.techadda.co:8082/artifactory/frontend/frontend-${TAG_NAME}.zip"'
+       sh 'docker build -t 851725420695.dkr.ecr.us-east-1.amazonaws.com/frontend:${TAG_NAME} .'
+       sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 851725420695.dkr.ecr.us-east-1.amazonaws.com'
+       sh 'docker push 851725420695.dkr.ecr.us-east-1.amazonaws.com/frontend:${TAG_NAME}'
       }
     }
   }
